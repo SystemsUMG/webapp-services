@@ -42,6 +42,7 @@ class UsersController extends Controller
             $this->records[] = [
                 'id'        => $user->id,
                 'name'      => $user->name,
+                'email'     => $user->email,
                 'age'       => $user->age,
                 'address'   => $user->address,
                 'region'    => $user->region->name,
@@ -94,6 +95,7 @@ class UsersController extends Controller
             $this->records = [
                 'id'        => $user->id,
                 'name'      => $user->name,
+                'email'     => $user->email,
                 'age'       => $user->age,
                 'address'   => $user->address,
                 'region'    => $user->region->name,
@@ -118,7 +120,7 @@ class UsersController extends Controller
                 $this->email = $this->user->email;
                 $this->user->email = '';
                 $this->user->save();
-                $validate = $request->validate($this->rules());
+                $validate = $request->validate($this->rulesUpdate());
                 if($validate) {
                     $validate['password'] = Hash::make($validate['password']);
                     $this->user->update($validate);
@@ -166,6 +168,17 @@ class UsersController extends Controller
             'name' => ['required', 'max:255', 'string'],
             'email' => ['required', 'unique:users,email', 'email'],
             'password' => ['required'],
+            'age' => ['required', 'numeric'],
+            'address' => ['required', 'max:255', 'string'],
+            'region_id' => ['required', 'exists:regions,id'],
+        ];
+    }
+
+    public function rulesUpdate()
+    {
+        return [
+            'name' => ['required', 'max:255', 'string'],
+            'email' => ['required', 'unique:users,email', 'email'],
             'age' => ['required', 'numeric'],
             'address' => ['required', 'max:255', 'string'],
             'region_id' => ['required', 'exists:regions,id'],
