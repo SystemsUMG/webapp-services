@@ -26,6 +26,11 @@ class User extends Authenticatable
         'region_id',
     ];
 
+    public function region()
+    {
+        return $this->hasOne(Region::class, 'id', 'region_id');
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
