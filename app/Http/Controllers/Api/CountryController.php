@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Country;
+use App\Models\Region;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -126,8 +127,15 @@ class CountryController extends Controller
             $this->result = false;
             $this->message = 'País no encontrado';
         } else {
-            $country->delete();
-            $this->message = 'País eliminado correctamente';
+            $region = Region::where('country_id', $country->id)->first();
+            if (!$region) {
+                $country->delete();
+                $this->message = 'País eliminado correctamente';
+            } else {
+                $this->result = false;
+                $this->message = 'No eliminado, otros registros dependen de este país';
+            }
+
         }
         return $this->response->jsonResponse($this->records, $this->result, $this->message, $this->statusCode);
     }

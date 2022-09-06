@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Region;
+use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -132,8 +133,14 @@ class RegionController extends Controller
             $this->result = false;
             $this->message = 'Región no encontrada';
         } else {
-            $region->delete();
-            $this->message = 'Región eliminada correctamente';
+            $user = User::where('region_id', $region->id)->first();
+            if (!$user) {
+                $region->delete();
+                $this->message = 'Región eliminada correctamente';
+            } else {
+                $this->result = false;
+                $this->message = 'No eliminado, otros registros dependen de esta región';
+            }
         }
         return $this->response->jsonResponse($this->records, $this->result, $this->message, $this->statusCode);
     }
