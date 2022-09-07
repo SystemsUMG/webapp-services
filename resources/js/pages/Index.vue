@@ -1,0 +1,2 @@
+
+./partials/navbar.vue

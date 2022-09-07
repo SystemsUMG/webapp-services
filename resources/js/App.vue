@@ -1,20 +1,28 @@
 <template>
-    <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="collapse navbar-collapse">
-                <div class="navbar-nav">
-                    <router-link :to="{ name: 'Home' }" class="nav-item nav-link">Home</router-link>
-                    <router-link :to="{ name: 'Example' }" class="nav-item nav-link">Example</router-link>
-                </div>
-            </div>
-        </nav>
-        <br/>
-        <router-view/>
+  <alert></alert>
+  <div class="min-height-300 bg-primary position-absolute w-100"></div>
+  <sidenav></sidenav>
+  <main class="main-content position-relative border-radius-lg">
+    <navbar></navbar>
+    <div class="container-fluid py-4">
+      <router-view />
     </div>
+    <bottom></bottom>
+  </main>
 </template>
 
 <script>
-    export default {
-        name: "App",
-    }
+import Navbar from "./pages/partials/Navbar.vue";
+import Bottom from "./pages/partials/Bottom.vue";
+import Sidenav from "./pages/partials/Sidenav.vue";
+import Alert from "./pages/partials/Alert.vue";
+export default {
+  name: "App",
+  components: {
+    Navbar,
+    Bottom,
+    Sidenav,
+    Alert,
+  },
+};
 </script>
