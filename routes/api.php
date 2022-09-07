@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Api\UsersController;
+use App\Http\Controllers\Api\RegionController;
+use App\Http\Controllers\Api\CountryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,5 +27,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::name('api.')
     ->group(function () {
         Route::apiResource('users', UsersController::class);
-
+        Route::apiResource('regions', RegionController::class);
+        Route::apiResource('countries', CountryController::class);
     });

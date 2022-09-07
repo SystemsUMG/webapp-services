@@ -61,7 +61,7 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         try {
-            $validate = $request->validate($this->rules(false));
+            $validate = $request->validate($this->rules());
             if($validate) {
                 $validate['password'] = Hash::make($validate['password']);
                 User::create($validate);
@@ -122,7 +122,9 @@ class UsersController extends Controller
                 $this->user->save();
                 $validate = $request->validate($this->rulesUpdate());
                 if($validate) {
-                    $validate['password'] = Hash::make($validate['password']);
+                    if ($request->password) {
+                        $validate['password'] = Hash::make($request->password);
+                    }
                     $this->user->update($validate);
                     $this->message = 'Usuario actualizado correctamente';
                 }
@@ -130,8 +132,6 @@ class UsersController extends Controller
                 $this->result = false;
                 $this->message = 'Usuario no encontrado';
             }
-
-
         } catch (Exception $exception) {
             $this->user->email = $this->email;
             $this->user->save();
