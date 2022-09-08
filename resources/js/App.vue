@@ -1,10 +1,10 @@
 <template>
   <alert></alert>
-  <div class="min-height-300 bg-primary position-absolute w-100"></div>
+  <div class="h-100 bg-primary position-fixed w-100"></div>
   <sidenav></sidenav>
   <main class="main-content position-relative border-radius-lg">
     <navbar></navbar>
-    <div class="container-fluid py-4">
+    <div class="container-fluid pt-4">
       <router-view />
     </div>
     <bottom></bottom>

@@ -19,6 +19,8 @@
         "vue": "^3.2.36",
         "vue-axios": "^3.4.1",
         "vue-loader": "^17.0.0",
-        "vue-router": "^4.1.5"
+        "vue-loading-overlay": "5.0",
+        "vue-router": "^4.1.5",
+        "vue-sweetalert2": "^5.0.5"
     }
 }
