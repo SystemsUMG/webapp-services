@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import home from "./pages/home.vue";
-import Users from "./pages/users/Users.vue";
+import Users from "./pages/users/Index.vue";
 import Profile from "./pages/profile/Profile.vue";
 // import Departments from "./pages/users/Countries.vue";
 // import Countries from "./pages/users/Countries.vue";
