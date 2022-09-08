@@ -24,11 +24,23 @@ class User extends Authenticatable
         'age',
         'address',
         'region_id',
+        'rol_id',
+        'department_id',
     ];
 
     public function region()
     {
         return $this->hasOne(Region::class, 'id', 'region_id');
+    }
+
+    public function rol()
+    {
+        return $this->hasOne(Rol::class, 'id', 'rol_id');
+    }
+
+    public function department()
+    {
+        return $this->hasOne(Department::class, 'id', 'department_id');
     }
 
     /**

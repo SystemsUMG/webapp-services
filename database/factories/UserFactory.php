@@ -24,6 +24,8 @@ class UserFactory extends Factory
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'address' => '5ta calle zona 2', // password
             'region_id' => 1,
+            'rol_id' => 1,
+            'department_id' => 1,
         ];
     }
 
