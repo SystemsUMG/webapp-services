@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\RolController;
 use App\Http\Controllers\Api\UsersController;
 use App\Http\Controllers\Api\RegionController;
 use App\Http\Controllers\Api\CountryController;
+use App\Http\Controllers\GraphicController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -33,4 +34,5 @@ Route::name('api.')
         Route::apiResource('countries', CountryController::class);
         Route::apiResource('rols', RolController::class);
         Route::apiResource('departments', DepartmentController::class);
+        Route::get('graphics/users', [GraphicController::class, 'graphic']);
     });
