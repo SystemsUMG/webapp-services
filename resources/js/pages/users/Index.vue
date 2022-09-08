@@ -21,7 +21,7 @@
 							<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Cargo</th>
 							<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Región</th>
 							<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">País</th>
-							<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+							<!-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th> -->
 							<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Acciones</th>
 							</tr>
 						</thead>
@@ -49,9 +49,9 @@
 										<span class="text-secondary text-xs font-weight-bold">{{ user.country }}</span>
 									</div>
 								</td>
-								<td class="px-3 text-sm">
+								<!-- <td class="px-3 text-sm">
 									<span class="badge badge-sm bg-gradient-success">Online</span>
-								</td>
+								</td> -->
 								<td class="align-middle">
 									<a  class="text-success font-weight-bold text-xs"  @click="OPEN('PUT', user.id)">Editar</a>
 									&nbsp;
@@ -84,7 +84,8 @@ export default {
 	data() {
 		return {
 			users: [],
-            error: '',
+			icon: '',
+            message: '',
             loader: {},
             show: false,
 			get_delete: false,
@@ -114,24 +115,24 @@ export default {
 				title: message
 			})
         },
-		showLoader() {
-            this.loader = this.$loading.show({
-                container:  null,
-                canCancel: false,
-				color: '#5E72E4',
-				backgroundColor: '#808080'
-            });
+		showLoader(show = false) {
+			if (show) {
+				this.loader = this.$loading.show({
+					container:  null,
+					canCancel: false,
+					color: '#5E72E4',
+					backgroundColor: '#808080'
+				})
+			} else {
+				this.loader.hide()
+			}
         },
-		hideLoader() {
-			this.loader.hide();
-		},
         loadData(){
 			let _this = this
-			let icon = 'error'
 
             _this.get_delete = false
 			_this.get_open = false
-			_this.showLoader()
+			_this.showLoader(true)
 
 			setTimeout(
 				function() {
@@ -140,19 +141,20 @@ export default {
 						if(resp.data.records.length > 0) {
 							_this.show = true
 							_this.users = resp.data.records
-							icon = 'success'
-							_this.error = resp.data.message
+							_this.icon = 'success'
+							_this.message = resp.data.message
 						} else {
-							icon = 'warning'
-							_this.error = 'No existen registros'
+							_this.icon = 'warning'
+							_this.message = 'No existen registros'
 						}
-						_this.showToast(icon, _this.error)
+						_this.showToast(_this.icon, _this.message)
 					}).catch((err) => {
-						_this.showToast(icon)
+						_this.icon = 'error'
+						_this.showToast(_this.icon)
 					})
-					_this.hideLoader()
+					_this.showLoader(false)
 				},
-				1000
+				2000
 			)
         },
 		OPEN: function(method, id = null){
