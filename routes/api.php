@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\DepartmentController;
+use App\Http\Controllers\Api\RolController;
 use App\Http\Controllers\Api\UsersController;
 use App\Http\Controllers\Api\RegionController;
 use App\Http\Controllers\Api\CountryController;
@@ -29,4 +31,6 @@ Route::name('api.')
         Route::apiResource('users', UsersController::class);
         Route::apiResource('regions', RegionController::class);
         Route::apiResource('countries', CountryController::class);
+        Route::apiResource('rols', RolController::class);
+        Route::apiResource('departments', DepartmentController::class);
     });

@@ -40,13 +40,15 @@ class UsersController extends Controller
         $users = User::all();
         foreach ($users as $user) {
             $this->records[] = [
-                'id'        => $user->id,
-                'name'      => $user->name,
-                'email'     => $user->email,
-                'age'       => $user->age,
-                'address'   => $user->address,
-                'region'    => $user->region->name,
-                'country'    => $user->region->country->name
+                'id'            => $user->id,
+                'name'          => $user->name,
+                'email'         => $user->email,
+                'age'           => $user->age,
+                'address'       => $user->address,
+                'region'        => $user->region->name,
+                'country'       => $user->region->country->name,
+                'department'    => $user->department->name,
+                'rol'           => $user->rol->name
             ];
         }
         return $this->response->jsonResponse($this->records, $this->result, $this->message, $this->statusCode);
@@ -75,8 +77,6 @@ class UsersController extends Controller
         } finally {
             return $this->response->jsonResponse($this->records, $this->result, $this->message, $this->statusCode);
         }
-
-
     }
 
     /**
@@ -93,13 +93,15 @@ class UsersController extends Controller
             $this->message = 'Usuario no encontrado';
         } else {
             $this->records = [
-                'id'        => $user->id,
-                'name'      => $user->name,
-                'email'     => $user->email,
-                'age'       => $user->age,
-                'address'   => $user->address,
-                'region'    => $user->region->name,
-                'country'    => $user->region->country->name
+                'id'            => $user->id,
+                'name'          => $user->name,
+                'email'         => $user->email,
+                'age'           => $user->age,
+                'address'       => $user->address,
+                'region'        => $user->region->name,
+                'country'       => $user->region->country->name,
+                'department'    => $user->department->name,
+                'rol'           => $user->rol->name
             ];
         }
         return $this->response->jsonResponse($this->records, $this->result, $this->message, $this->statusCode);
@@ -171,6 +173,8 @@ class UsersController extends Controller
             'age' => ['required', 'numeric'],
             'address' => ['required', 'max:255', 'string'],
             'region_id' => ['required', 'exists:regions,id'],
+            'rol_id' => ['required', 'exists:rols,id'],
+            'department_id' => ['required', 'exists:departments,id'],
         ];
     }
 
@@ -182,6 +186,8 @@ class UsersController extends Controller
             'age' => ['required', 'numeric'],
             'address' => ['required', 'max:255', 'string'],
             'region_id' => ['required', 'exists:regions,id'],
+            'rol_id' => ['required', 'exists:rols,id'],
+            'department_id' => ['required', 'exists:departments,id'],
         ];
     }
 }
