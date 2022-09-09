@@ -98,10 +98,10 @@ class UsersController extends Controller
                 'email'         => $user->email,
                 'age'           => $user->age,
                 'address'       => $user->address,
-                'region_id'        => $user->region_id,
-                'country_id'       => $user->region_id,
-                'department_id'    => $user->department_id,
-                'rol_id'           => $user->rol_id
+                'region_id'     => $user->region_id,
+                'country_id'    => $user->region_id,
+                'department_id' => $user->department_id,
+                'rol_id'        => $user->rol_id
             ];
         }
         return $this->response->jsonResponse($this->records, $this->result, $this->message, $this->statusCode);
