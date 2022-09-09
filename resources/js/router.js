@@ -2,8 +2,10 @@ import { createRouter, createWebHistory } from "vue-router";
 import home from "./pages/home.vue";
 import Users from "./pages/users/Index.vue";
 import Profile from "./pages/profile/Profile.vue";
-// import Departments from "./pages/users/Countries.vue";
-// import Countries from "./pages/users/Countries.vue";
+import Countries from "./pages/countries/Index.vue";
+import Departments from "./pages/departments/Index.vue";
+import Regions from "./pages/regions/Index.vue";
+import Roles from "./pages/roles/Index.vue";
 
 
 const routes = [
@@ -22,16 +24,26 @@ const routes = [
         name: "Profile",
         component: Profile
     },
-    // {
-    //     path: "/paises",
-    //     name: "Countries",
-    //     component: Countries
-    // },
-    // {
-    //     path: "/departamentos",
-    //     name: "Departments",
-    //     component: Departments
-    // },
+    {
+        path: "/paises",
+        name: "Countries",
+        component: Countries
+    },
+    {
+        path: "/departamentos",
+        name: "Departments",
+        component: Departments
+    },
+    {
+        path: "/regiones",
+        name: "Regions",
+        component: Regions
+    },
+    {
+        path: "/roles",
+        name: "Roles",
+        component: Roles
+    },
 ];
 
 const history = createWebHistory();
