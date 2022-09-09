@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\DepartmentController;
 use App\Http\Controllers\Api\RolController;
 use App\Http\Controllers\Api\UsersController;
@@ -24,10 +25,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
-
+Route::post('login', [AuthController::class, 'login']);
 
 Route::name('api.')
+    ->middleware('auth:sanctum')
     ->group(function () {
         Route::apiResource('users', UsersController::class);
         Route::apiResource('regions', RegionController::class);
@@ -35,4 +36,5 @@ Route::name('api.')
         Route::apiResource('rols', RolController::class);
         Route::apiResource('departments', DepartmentController::class);
         Route::get('graphics/users', [GraphicController::class, 'graphic']);
+        Route::post('logout', [AuthController::class, 'logout']);
     });
