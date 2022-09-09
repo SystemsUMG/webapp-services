@@ -10,70 +10,22 @@
                     </div>
                     <div class="modal-body pt-0 px-4">
                         <hr class="horizontal dark"/>
-                        <p class="text-uppercase text-sm">Información Personal</p>
+                        <p class="text-uppercase text-sm">Información del Departamento</p>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="name" class="form-control-label">Nombre</label>
+                                    <label for="name" class="form-control-label">Nombre del Departamento</label>
                                     <input id="name" class="form-control" type="text" v-model="data.name">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="email" class="form-control-label">Email</label>
-                                    <input id="email" class="form-control" type="email" v-model="data.email">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="password" class="form-control-label">Contraseña</label>
-                                    <input id="password" class="form-control" type="password" v-model="data.password">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="age" class="form-control-label">Edad</label>
-                                    <input id="age" class="form-control" type="number" v-model="data.age">
+                                    <label for="description" class="form-control-label">Descripción</label>
+                                    <input id="description" class="form-control" type="text" v-model="data.description">
                                 </div>
                             </div>
                         </div>
                         <hr class="horizontal dark">
-                        <p class="text-uppercase text-sm">Datos Adicionales</p>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="rol_id" class="form-control-label">Puesto</label>
-                                    <select  id="rol_id" class="form-select" v-model="data.rol_id">
-                                        <option value="" disabled hidden>Seleccione una opción</option>
-                                        <option v-for="rol in roles" :value="rol.id" :key="rol.id">{{ rol.name }}</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="department_id" class="form-control-label">Área</label>
-                                    <select  id="department_id" class="form-select" v-model="data.department_id">
-                                        <option value="" disabled hidden>Seleccione una opción</option>
-                                        <option v-for="department in departments" :value="department.id" :key="department.id">{{ department.name }}</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="address" class="form-control-label">Dirección</label>
-                                    <input id="address" class="form-control" type="text" v-model="data.address">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="region_id" class="form-control-label">Región</label>
-                                    <select  id="region_id" class="form-select" v-model="data.region_id">
-                                        <option value="" disabled hidden>Seleccione una opción</option>
-                                        <option v-for="region in regions" :value="region.id" :key="region.id">{{ region.name }}</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
                         <div class="row justify-content-center">
                             <div class="col mb-2 me-0 text-end">
                                 <button @click="CLOSE()" type="button" class="btn btn-secondary btn-sm ms-auto mt-2 mb-0">
@@ -104,17 +56,8 @@ export default {
             loader: {},
             data: {
                 name: '',
-                email: '',
-                password: '',
-                age: '',
-                address: '',
-                region_id: '',
-                rol_id: '',
-                department_id: ''
+                description: '',
             },
-            roles: [],
-            departments: [],
-            regions: [],
             load: false,
             count: 0,
             url: '',
@@ -123,11 +66,8 @@ export default {
     computed: {
         OPEN: function() {
             let _this = this
-            _this.loadData('rols')
-            _this.loadData('departments')
-            _this.loadData('regions')
             if(_this.method == 'PUT') {
-                axios({url: '/users/' + _this.id, method: 'GET' })
+                axios({url: '/departments/' + _this.id, method: 'GET' })
                 .then((resp) => {
                     if (resp.data.result) {
                         _this.data = resp.data.records
@@ -192,7 +132,7 @@ export default {
                         break;
                     default:
                         _this.roles = records
-                    } 
+                    }
 					_this.icon = 'success'
 					_this.message = resp.data.message
 				} else {
@@ -228,7 +168,7 @@ export default {
                 }
 
                 setTimeout(function() {
-					axios({url: '/users' + method, method: 'POST', data: form })
+					axios({url: '/departments' + method, method: 'POST', data: form })
 					.then((resp) => {
 						if(resp.data.result) {
 							_this.icon = 'success'
