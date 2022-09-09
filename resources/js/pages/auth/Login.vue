@@ -93,7 +93,9 @@ export default {
                 .then((resp) => {
 					if(resp.data.result) {
 						const token = resp.data.records.token
+						const user = resp.data.records.user_id
                         localStorage.setItem('token', token)
+                        localStorage.setItem('user', user)
 						this.$router.push({ name: 'Home' })
 						window.location.reload('/')
 					} else {

@@ -40,6 +40,7 @@
 				axios({url: 'logout', method: 'POST' })
 				.then((resp) => {
 					localStorage.removeItem('token')
+					localStorage.removeItem('user')
 					this.$router.push({ name: 'Login' })
 					window.location.reload('/login')
 				})
