@@ -44,7 +44,7 @@
                             <tbody v-else>
                             <tr>
                                 <td class="text-center py-5" colspan="6">
-                                    <p>No hay departamentos registrados</p>
+                                    <p>No hay puestos registrados</p>
                                 </td>
                             </tr>
                             </tbody>

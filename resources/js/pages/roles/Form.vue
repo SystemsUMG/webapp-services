@@ -10,11 +10,11 @@
                     </div>
                     <div class="modal-body pt-0 px-4">
                         <hr class="horizontal dark"/>
-                        <p class="text-uppercase text-sm">Información del Departamento</p>
+                        <p class="text-uppercase text-sm">Información del Puesto</p>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="name" class="form-control-label">Nombre del Departamento</label>
+                                    <label for="name" class="form-control-label">Nombre del Puesto</label>
                                     <input id="name" class="form-control" type="text" v-model="data.name">
                                 </div>
                             </div>
