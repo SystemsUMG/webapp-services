@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Api\ResponseController;
 use App\Models\Country;
+use App\Models\Department;
+use App\Models\Region;
+use App\Models\Rol;
 use App\Models\User;
 
 class GraphicController extends Controller
@@ -32,6 +35,13 @@ class GraphicController extends Controller
         }
         $this->records['countries'] = $array_countries;
         $this->records['users_real'] = $array_users;
+        $this->records['totals'] = [
+            'total_users' => User::count(),
+            'total_countries' => Country::count(),
+            'total_regions' => Region::count(),
+            'total_departments' => Department::count(),
+            'total_rols' => Rol::count(),
+        ];
 
         return $this->response->jsonResponse($this->records, $this->result, $this->message, $this->statusCode);
     }
