@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" value="{{ csrf_token() }}" />
-    <title>WebApp</title>
+    <title>Control de Personal</title>
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('/img/apple-icon.png') }}">
-    <link rel="icon" type="image/png" href="{{ asset('/img/favicon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('/img/logoRH.png') }}">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <link href="{{ asset('/css/nucleo-icons.css') }}" rel="stylesheet" />
     <link href="{{ asset('/css/nucleo-svg.css') }}" rel="stylesheet" />
