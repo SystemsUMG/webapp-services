@@ -3,7 +3,13 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Country;
+use App\Models\Department;
+use App\Models\Region;
+use App\Models\Rol;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,15 +21,21 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        \App\Models\Country::factory(5)->create();
-        \App\Models\Region::factory(5)->create();
-        \App\Models\Rol::factory(5)->create();
-        \App\Models\Department::factory(5)->create();
-        \App\Models\User::factory(10)->create();
+        Country::factory(6)->create();
+        Region::factory(8)->create();
+        Rol::factory(3)->create();
+        Department::factory(8)->create();
+        User::factory(20)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::factory()->create([
+            'name' => 'Administrador',
+            'email' => 'admin@admin.com',
+            'age' => 21,
+            'password' => Hash::make('admin'),
+            'address' => 'Chimaltenango, Guatemala',
+            'region_id' => 1,
+            'rol_id' => 1,
+            'department_id' => 2,
+         ]);
     }
 }

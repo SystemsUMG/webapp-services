@@ -18,7 +18,7 @@ class RegionFactory extends Factory
     {
         return [
             'name' => fake()->city(),
-            'country_id' => 1,
+            'country_id' => fake()->numberBetween(1,6),
         ];
     }
 }
