@@ -99,7 +99,7 @@ class UsersController extends Controller
                 'age'           => $user->age,
                 'address'       => $user->address,
                 'region_id'     => $user->region_id,
-                'country_id'    => $user->region_id,
+                'country_id'    => $user->region->country_id,
                 'department_id' => $user->department_id,
                 'rol_id'        => $user->rol_id
             ];
