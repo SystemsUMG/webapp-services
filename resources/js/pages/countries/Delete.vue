@@ -73,7 +73,7 @@ export default {
             _this.count++
             _this.load = true
             if(_this.count == 1){
-                axios({url: '/users/' + _this.id, method: 'DELETE' })
+                axios({url: '/countries/' + _this.id, method: 'DELETE' })
                 .then((resp) => {
                     setTimeout(() => {
                         _this.load = false
