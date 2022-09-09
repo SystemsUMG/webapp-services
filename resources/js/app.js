@@ -8,7 +8,12 @@ import VueLoading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
 
 window.axios = axios
+
+const token = localStorage.getItem('token')
 axios.defaults.baseURL = '/api/'
+if (token){
+    axios.defaults.headers.common['Authorization'] = 'Bearer ' + token
+}
 
 const app = createApp(App)
 

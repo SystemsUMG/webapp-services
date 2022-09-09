@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
-import home from "./pages/home.vue";
+import Login from "./pages/auth/Login.vue";
+import Home from "./pages/home.vue";
 import Users from "./pages/users/Index.vue";
 import Profile from "./pages/profile/Profile.vue";
 import Countries from "./pages/countries/Index.vue";
@@ -7,12 +8,16 @@ import Departments from "./pages/departments/Index.vue";
 import Regions from "./pages/regions/Index.vue";
 import Roles from "./pages/roles/Index.vue";
 
-
 const routes = [
+    {
+        path: "/login",
+        name: "Login",
+        component: Login
+    },
     {
         path: "/",
         name: "Home",
-        component: home
+        component: Home
     },
     {
         path: "/usuarios",
@@ -54,5 +59,16 @@ const router = createRouter(
         routes,
     }
 );
+
+router.beforeEach((to, from, next) => {
+    const token = localStorage.getItem('token');
+    if (to.name !== 'Login' && !token) {
+        next({ name: 'Login' })
+    } else if (to.name === 'Login' && token) {
+        next({ name: 'Home' })
+    } else {
+        next()
+    }
+  })
 
 export default router;

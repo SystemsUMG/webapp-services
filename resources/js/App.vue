@@ -1,13 +1,13 @@
 <template>
   	<alert></alert>
-  	<div class="h-100 bg-primary position-fixed w-100"></div>
-  	<sidenav></sidenav>
+  	<div class="h-100 bg-primary position-fixed w-100" v-if="show"></div>
+  	<sidenav v-if="show"></sidenav>
   	<main class="main-content position-relative border-radius-lg">
-    	<navbar></navbar>
+    	<navbar v-if="show"></navbar>
     	<div class="container-fluid pt-4">
       	<router-view />
     	</div>
-    	<bottom></bottom>
+    	<bottom v-if="show"></bottom>
   	</main>
 </template>
 
@@ -25,5 +25,14 @@ export default {
     	Sidenav,
     	Alert,
 	},
+	data() {
+		return {
+			show: false,
+        }
+    },
+	created() {
+		const token = localStorage.getItem('token')
+		this.show = token ? true : false
+	}
 }
 </script>
