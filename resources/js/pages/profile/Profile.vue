@@ -12,7 +12,7 @@
     		</div>
     		<div class="card-body pt-0">
         		<div class="text-center mt-4">
-            		<h5>{{ user.name }}<span class="font-weight-light">, {{ user.age }}</span></h5>
+            		<h5>{{ user.name }}<span class="font-weight-light">, {{ user.age }} años</span></h5>
 					<h6 class="font-weight-300">{{ user.email }}</h6>
 					<h6 class="font-weight-300">{{ user.rol_id }} - {{ user.department_id }}</h6>
 					<p class="mt-4 mb-0">{{ user.address }}</p>
@@ -106,7 +106,7 @@ export default {
                         break;
                     default:
                         _this.roles = records
-                    } 
+                    }
 				} else {
 					_this.icon = 'error'
 					_this.message = 'No existen ' + url + ' registrados'
