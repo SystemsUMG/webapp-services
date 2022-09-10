@@ -100,7 +100,7 @@ export default {
 				this.loader = this.$loading.show({
 					container:  null,
 					canCancel: false,
-					color: '#5E72E4',
+					color: '#000000',
 					backgroundColor: '#808080'
 				})
 			} else {
