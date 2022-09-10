@@ -17,15 +17,15 @@
 					<table class="table align-items-center mb-0">
 						<thead>
 							<tr>
-							<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Departamento</th>
-							<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">Descripción</th>
+							<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Departamento</th>
+							<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Descripción</th>
 							<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Acciones</th>
 							</tr>
 						</thead>
 						<tbody v-if="show">
 							<tr v-for="department in departments" :key="department.id">
 								<td>
-									<div class="px-3 text-center">
+									<div class="px-3 ">
 										<span class="text-secondary text-xs font-weight-bold ">{{ department.name }}</span>
 									</div>
 								</td>
@@ -35,9 +35,9 @@
                                     </div>
                                 </td>
 								<td class="align-middle">
-									<a  class="text-success font-weight-bold text-xs"  @click="OPEN('PUT', department.id)">Editar</a>
+									<a  class="text-success font-weight-bold text-xs cursor-pointer"  @click="OPEN('PUT', department.id)">Editar</a>
 									&nbsp;
-									<a class="text-danger font-weight-bold text-xs" @click="OPEN('DELETE', department.id)">Eliminar</a>
+									<a class="text-danger font-weight-bold text-xs cursor-pointer" @click="OPEN('DELETE', department.id)">Eliminar</a>
 								</td>
 							</tr>
 						</tbody>
@@ -128,8 +128,8 @@ export default {
 						} else {
 							_this.icon = 'warning'
 							_this.message = 'No existen registros'
+							_this.showToast(_this.icon, _this.message)
 						}
-						_this.showToast(_this.icon, _this.message)
 					}).catch((err) => {
 						_this.icon = 'error'
 						_this.showToast(_this.icon)

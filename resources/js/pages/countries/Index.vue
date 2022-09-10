@@ -29,9 +29,9 @@
 									</div>
 								</td>
 								<td class="align-middle text-center px-5">
-									<a  class="text-success font-weight-bold text-xs"  @click="OPEN('PUT', country.id)">Editar</a>
+									<a  class="text-success font-weight-bold text-xs cursor-pointer"  @click="OPEN('PUT', country.id)">Editar</a>
 									&nbsp;
-									<a class="text-danger font-weight-bold text-xs" @click="OPEN('DELETE', country.id)">Eliminar</a>
+									<a class="text-danger font-weight-bold text-xs cursor-pointer" @click="OPEN('DELETE', country.id)">Eliminar</a>
 								</td>
 							</tr>
 						</tbody>
@@ -122,8 +122,8 @@ export default {
 						} else {
 							_this.icon = 'warning'
 							_this.message = 'No existen registros'
+							_this.showToast(_this.icon, _this.message)
 						}
-						_this.showToast(_this.icon, _this.message)
 					}).catch((err) => {
 						_this.icon = 'error'
 						_this.showToast(_this.icon)

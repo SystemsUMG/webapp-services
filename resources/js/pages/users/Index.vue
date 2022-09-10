@@ -53,9 +53,9 @@
 									<span class="badge badge-sm bg-gradient-success">Online</span>
 								</td> -->
 								<td class="align-middle">
-									<a  class="text-success font-weight-bold text-xs"  @click="OPEN('PUT', user.id)">Editar</a>
+									<a  class="text-success font-weight-bold text-xs cursor-pointer"  @click="OPEN('PUT', user.id)">Editar</a>
 									&nbsp;
-									<a class="text-danger font-weight-bold text-xs" @click="OPEN('DELETE', user.id)">Eliminar</a>
+									<a class="text-danger font-weight-bold text-xs cursor-pointer" @click="OPEN('DELETE', user.id)">Eliminar</a>
 								</td>
 							</tr>
 						</tbody>
@@ -146,8 +146,8 @@ export default {
 						} else {
 							_this.icon = 'warning'
 							_this.message = 'No existen registros'
+							_this.showToast(_this.icon, _this.message)
 						}
-						_this.showToast(_this.icon, _this.message)
 					}).catch((err) => {
 						_this.icon = 'error'
 						_this.showToast(_this.icon)

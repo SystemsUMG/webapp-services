@@ -78,7 +78,7 @@ export default {
                     setTimeout(() => {
                         _this.load = false
                         _this.count = 0
-                        _this.icon = 'success'
+                        _this.icon = resp.data.result ? 'success' : 'error'
 						_this.message = resp.data.message
                         _this.CLOSE()
                         _this.showToast(_this.icon, _this.message)
