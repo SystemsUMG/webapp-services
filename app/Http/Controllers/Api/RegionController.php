@@ -83,8 +83,9 @@ class RegionController extends Controller
             $this->message = 'Región no encontrada';
         } else {
             $this->records = [
-                'id'        => $region->id,
-                'name'      => $region->name,
+                'id'         => $region->id,
+                'name'       => $region->name,
+                'country_id' => $region->country_id,
             ];
         }
         return $this->response->jsonResponse($this->records, $this->result, $this->message, $this->statusCode);
