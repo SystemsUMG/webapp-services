@@ -158,6 +158,17 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name' => 'nombre',
+        'email' => 'email',
+        'password' => 'contraseña',
+        'age' => 'edad',
+        'address' => 'dirección',
+        'region_id' => 'región',
+        'rol_id' => 'puesto',
+        'department_id' => 'departamento',
+        'country_id' => 'pais',
+        'description' => 'descripción',
+    ],
 
 ];
