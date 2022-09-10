@@ -5,10 +5,10 @@
 			<div class="card-header pb-0">
 				<div class="row">
 					<div class="col">
-						<h6>Tabla de Usuarios</h6>
+						<h6>Tabla de Regiones</h6>
 					</div>
 					<div class="col text-end">
-						<button type="button" @click="OPEN('POST')" class="btn btn-dark btn-sm mb-3">Crear Usuario</button>
+						<button type="button" @click="OPEN('POST')" class="btn btn-dark btn-sm mb-3">Crear Región</button>
 					</div>
 				</div>
 			</div>
@@ -17,52 +17,34 @@
 					<table class="table align-items-center mb-0">
 						<thead>
 							<tr>
-							<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Usuario</th>
-							<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Cargo</th>
-							<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Región</th>
-							<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">País</th>
-							<!-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th> -->
-							<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Acciones</th>
+								<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-4">Región</th>
+								<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-4">País</th>
+								<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Acciones</th>
 							</tr>
 						</thead>
 						<tbody v-if="show">
-							<tr v-for="user in users" :key="user.id">
-								<td>
-									<div class="d-flex px-3 py-1">
-										<div class="d-flex flex-column justify-content-center">
-											<h6 class="mb-0 text-sm">{{ user.name }}</h6>
-											<p class="text-xs text-secondary mb-0">{{ user.email }}</p>
-										</div>
+							<tr v-for="region in regions" :key="region.id">
+								<td class="ps-0">
+									<div class="ps-4">
+										<span class="text-secondary text-xs font-weight-bold">{{ region.name }}</span>
 									</div>
 								</td>
-								<td>
-									<p class="text-xs font-weight-bold mb-0">{{ user.rol }}</p>
-									<p class="text-xs text-secondary mb-0">{{ user.department }}</p>
-								</td>
-								<td>
-									<div class="px-3">
-										<span class="text-secondary text-xs font-weight-bold">{{ user.region }}</span>
+								<td class="ps-0">
+									<div class="ps-4">
+										<span class="text-secondary text-xs font-weight-bold">{{ region.country }}</span>
 									</div>
 								</td>
-								<td>
-									<div class="px-3">
-										<span class="text-secondary text-xs font-weight-bold">{{ user.country }}</span>
-									</div>
-								</td>
-								<!-- <td class="px-3 text-sm">
-									<span class="badge badge-sm bg-gradient-success">Online</span>
-								</td> -->
 								<td class="align-middle">
-									<a  class="text-success font-weight-bold text-xs"  @click="OPEN('PUT', user.id)">Editar</a>
+									<a  class="text-success font-weight-bold text-xs cursor-pointer"  @click="OPEN('PUT', region.id)">Editar</a>
 									&nbsp;
-									<a class="text-danger font-weight-bold text-xs" @click="OPEN('DELETE', user.id)">Eliminar</a>
+									<a class="text-danger font-weight-bold text-xs cursor-pointer" @click="OPEN('DELETE', region.id)">Eliminar</a>
 								</td>
 							</tr>
 						</tbody>
 						<tbody v-else>
 							<tr>
 								<td class="text-center py-5" colspan="6">
-									<p>No hay usuarios registrados</p>
+									<p>No hay regiones registradas</p>
 								</td>
 							</tr>
 						</tbody>
@@ -83,7 +65,7 @@ export default {
     components: { DataForm, DataDelete },
 	data() {
 		return {
-			users: [],
+			regions: [],
 			icon: '',
             message: '',
             loader: {},
@@ -136,18 +118,18 @@ export default {
 
 			setTimeout(
 				function() {
-					axios({url: 'users' , method: 'GET'})
+					axios({url: 'regions' , method: 'GET'})
 					.then((resp) => {
 						if(resp.data.records.length > 0) {
 							_this.show = true
-							_this.users = resp.data.records
+							_this.regions = resp.data.records
 							_this.icon = 'success'
 							_this.message = resp.data.message
 						} else {
 							_this.icon = 'warning'
 							_this.message = 'No existen registros'
+							_this.showToast(_this.icon, _this.message)
 						}
-						_this.showToast(_this.icon, _this.message)
 					}).catch((err) => {
 						_this.icon = 'error'
 						_this.showToast(_this.icon)

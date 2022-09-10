@@ -73,12 +73,12 @@ export default {
             _this.count++
             _this.load = true
             if(_this.count == 1){
-                axios({url: '/users/' + _this.id, method: 'DELETE' })
+                axios({url: '/regions/' + _this.id, method: 'DELETE' })
                 .then((resp) => {
                     setTimeout(() => {
                         _this.load = false
                         _this.count = 0
-                        _this.icon = 'success'
+                        _this.icon = resp.data.result ? 'success' : 'error'
 						_this.message = resp.data.message
                         _this.CLOSE()
                         _this.showToast(_this.icon, _this.message)
