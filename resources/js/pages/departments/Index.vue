@@ -136,7 +136,7 @@ export default {
 					})
 					_this.showLoader(false)
 				},
-				2000
+				300
 			)
         },
 		OPEN: function(method, id = null){
