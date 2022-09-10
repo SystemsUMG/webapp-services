@@ -3,86 +3,78 @@
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
           	<div class="card">
             	<div class="card-body p-3">
-              	<div class="row">
-                	<div class="col-8">
-                  	<div class="numbers">
-                    	<p class="text-sm mb-0 text-uppercase font-weight-bold">Total de Usuarios</p>
-                    	<h5 class="font-weight-bolder">
-                      {{ totals.total_users }}
-                    </h5>
-                  </div>
-                </div>
-                <div class="col-4 text-end">
-                  <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
-                    <i class="ni ni-single-02 text-lg opacity-10" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+              		<div class="row">
+                		<div class="col-8">
+							<div class="numbers">
+								<p class="text-sm mb-0 text-uppercase font-weight-bold">Usuarios</p>
+								<h5 class="font-weight-bolder">{{ totals.total_users }}</h5>
+							</div>
+                		</div>
+                		<div class="col-4 text-end">
+                  			<div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
+                    			<i class="ni ni-single-02 text-lg opacity-10" aria-hidden="true"></i>
+                  			</div>
+                		</div>
+              		</div>
+            	</div>
+        	</div>
         </div>
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-body p-3">
-              <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Total de Países</p>
-                    <h5 class="font-weight-bolder">
-                      {{ totals.total_countries }}
-                    </h5>
-                  </div>
-                </div>
-                <div class="col-4 text-end">
-                  <div class="icon icon-shape bg-gradient-danger shadow-danger text-center rounded-circle">
-                    <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        	<div class="card">
+            	<div class="card-body p-3">
+              		<div class="row">
+                		<div class="col-8">
+                  			<div class="numbers">
+                    			<p class="text-sm mb-0 text-uppercase font-weight-bold">Países</p>
+                    			<h5 class="font-weight-bolder">{{ totals.total_countries }}</h5>
+                  			</div>
+                		</div>
+                		<div class="col-4 text-end">
+                  			<div class="icon icon-shape bg-gradient-danger shadow-danger text-center rounded-circle">
+                    			<i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
+                  			</div>
+                		</div>
+              		</div>
+            	</div>
+        	</div>
+    	</div>
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-body p-3">
-              <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Total de Departamentos</p>
-                    <h5 class="font-weight-bolder">
-                      {{ totals.total_departments }}
-                    </h5>
-                  </div>
-                </div>
-                <div class="col-4 text-end">
-                  <div class="icon icon-shape bg-gradient-success shadow-success text-center rounded-circle">
-                    <i class="ni ni-square-pin text-lg opacity-10" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          	<div class="card">
+            	<div class="card-body p-3">
+              		<div class="row">
+              		  	<div class="col-8">
+              		    	<div class="numbers">
+              		      		<p class="text-sm mb-0 text-uppercase font-weight-bold">Departamentos</p>
+              		      		<h5 class="font-weight-bolder">{{ totals.total_departments }}</h5>
+              		    	</div>
+              		  	</div>
+              			<div class="col-4 text-end">
+							<div class="icon icon-shape bg-gradient-success shadow-success text-center rounded-circle">
+								<i class="ni ni-square-pin text-lg opacity-10" aria-hidden="true"></i>
+							</div>
+           				</div>
+        			</div>
+            	</div>
+          	</div>
         </div>
         <div class="col-xl-3 col-sm-6">
-          <div class="card">
-            <div class="card-body p-3">
-              <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Total de Regiones</p>
-                    <h5 class="font-weight-bolder">
-                      {{ totals.total_departments }}
-                    </h5>
-                  </div>
-                </div>
-                <div class="col-4 text-end">
-                  <div class="icon icon-shape bg-gradient-warning shadow-warning text-center rounded-circle">
-                    <i class="ni ni-world-2 text-lg opacity-10" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          	<div class="card">
+          	  	<div class="card-body p-3">
+          	  	  	<div class="row">
+          	  	  	  	<div class="col-8">
+          	  	  	  	  	<div class="numbers">
+          	  	  	  	  	  	<p class="text-sm mb-0 text-uppercase font-weight-bold">Regiones</p>
+          	  	  	  	  	  	<h5 class="font-weight-bolder">{{ totals.total_departments }}</h5>
+          	  	  	  	  	</div>
+          	  	  	  	</div>
+          	  	  	  	<div class="col-4 text-end">
+          	  	  	  	  	<div class="icon icon-shape bg-gradient-warning shadow-warning text-center rounded-circle">
+          	  	  	  	    	<i class="ni ni-world-2 text-lg opacity-10" aria-hidden="true"></i>
+          	  	  	  	  	</div>
+          	  	  	  	</div>
+          	  	  	</div>
+          		</div>
+          	</div>
         </div>
 	</div>
     <div class="row mt-4">
