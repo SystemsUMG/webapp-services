@@ -40,7 +40,7 @@ export default {
 			.then((resp) => {
 				localStorage.removeItem('token')
 				localStorage.removeItem('user')
-				this.$router.push({ name: 'Login' })
+				// this.$router.push({ name: 'Login' })
 				window.location.reload('/login')
 			})
 		}
