@@ -8,7 +8,7 @@
       	</router-link>
     </div>
     <hr class="horizontal dark mt-0">
-    <div class="collapse navbar-collapse w-auto " id="sidenav-collapse-main" style="height: 100%">
+    <div class="collapse navbar-collapse w-auto " id="sidenav-collapse-main" style="height: inherit">
       	<ul class="navbar-nav">
         	<li class="nav-item">
         	  	<router-link class="nav-link" :to="{ name: 'Home' }">
